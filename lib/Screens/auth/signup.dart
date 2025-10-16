@@ -1,5 +1,4 @@
 import 'package:an_e_commerce_app/Screens/auth/login_screen.dart';
-import 'package:an_e_commerce_app/main.dart';
 import 'package:an_e_commerce_app/widgets/roundbtn.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -38,15 +37,12 @@ class _SignupState extends State<Signup> {
               password: passwordController.text.trim(),
             );
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('SignUp Successful: ${userCredential.user!.email}'),
-          ),
+          const SnackBar(content: Text('Sign Up successful! Please log in.')),
         );
+
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(
-            builder: (_) => const MyHomePage(title: "E-COMMERCE"),
-          ),
+          MaterialPageRoute(builder: (_) => const LoginScreen()),
         );
       } on FirebaseAuthException catch (e) {
         ScaffoldMessenger.of(
@@ -105,10 +101,7 @@ class _SignupState extends State<Signup> {
                   },
                 ),
                 const SizedBox(height: 30),
-                Roundbtn(
-                  title: 'Signup', 
-                  onTap: _signUp
-                  ),
+                Roundbtn(title: 'Signup', onTap: _signUp),
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

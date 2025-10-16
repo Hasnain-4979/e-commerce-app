@@ -1,5 +1,5 @@
+import 'package:an_e_commerce_app/Screens/HomeScreen/my_home_page.dart';
 import 'package:an_e_commerce_app/Screens/auth/signup.dart';
-import 'package:an_e_commerce_app/main.dart';
 import 'package:an_e_commerce_app/widgets/roundbtn.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (_) => const MyHomePage(title: "E-COMMERCE"),
+              builder: (_) => const MyHomePage(),
             ),
           );
         }
@@ -59,7 +59,6 @@ class _LoginScreenState extends State<LoginScreen> {
       }
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
