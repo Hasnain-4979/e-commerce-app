@@ -1,4 +1,4 @@
-import 'package:an_e_commerce_app/Screens/HomeScreen/my_home_page.dart';
+import 'package:an_e_commerce_app/Screens/HomeScreen/sale_screen.dart';
 import 'package:an_e_commerce_app/services/splash_service.dart';
 import 'package:flutter/material.dart';
 
@@ -22,15 +22,19 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child:
-            TextButton(
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => MyHomePage(),
-                ),
-                );
-              },
-              child: Text('e-commerce', style: TextStyle(fontSize: 32)),
+        child: TextButton(
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const SaleScreen()),
+            );
+          },
+          child: const Center(
+            child: Text(
+              'E-COMMERCE STORE',
+              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+            ),
+          ),
         ),
       ),
     );

@@ -1,4 +1,4 @@
-import 'package:an_e_commerce_app/Screens/HomeScreen/my_home_page.dart';
+import 'package:an_e_commerce_app/Screens/HomeScreen/sale_screen.dart';
 import 'package:an_e_commerce_app/Screens/auth/signup.dart';
 import 'package:an_e_commerce_app/widgets/roundbtn.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -17,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final passwordController = TextEditingController();
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  bool _isLoading = false; 
+  bool _isLoading = false;
 
   @override
   void dispose() {
@@ -42,9 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
         if (userCredential.user != null) {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(
-              builder: (_) => const MyHomePage(),
-            ),
+            MaterialPageRoute(builder: (_) => const SaleScreen()),
           );
         }
       } on FirebaseAuthException catch (e) {
@@ -106,13 +104,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     return null;
                   },
                 ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Roundbtn(title: 'Login', onTap: _login,
-                ),
-              
-              const SizedBox(height: 20),
+                const SizedBox(height: 15),
+                Roundbtn(title: 'Login', onTap: _login),
+
+                const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -130,9 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ],
                 ),
-              
               ],
-
             ),
           ),
         ],

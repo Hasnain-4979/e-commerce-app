@@ -12,8 +12,10 @@ class _BuyScreenState extends State<BuyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Buy'), centerTitle: true),
-      body: Column(children: [Center(child: Text("This is Buy Screen"))
-      ]
+      body: Column(
+        children: [
+          
+        ]
     ),
     );
   }
